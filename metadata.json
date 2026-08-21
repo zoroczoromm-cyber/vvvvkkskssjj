@@ -1,0 +1,8 @@
+{
+  "name": "Remix دردشة",
+  "description": "تطبيق دردشة ومحادثات ذكية متكامل، يدعم إدارة الجلسات والموضوعات والردود الذكية مع حفظ التاريخ محلياً.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
