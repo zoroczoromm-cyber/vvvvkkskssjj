@@ -28,7 +28,11 @@ class VoiceDictationManager(private val context: Context) {
     val errorMessage: StateFlow<String?> = _errorMessage.asStateFlow()
 
     fun isRecognitionAvailable(): Boolean {
-        return SpeechRecognizer.isRecognitionAvailable(context)
+        return try {
+            SpeechRecognizer.isRecognitionAvailable(context)
+        } catch (e: Throwable) {
+            false
+        }
     }
 
     fun startListening(

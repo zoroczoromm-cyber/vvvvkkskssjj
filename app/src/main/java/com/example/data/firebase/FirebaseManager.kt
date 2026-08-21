@@ -35,16 +35,22 @@ class FirebaseManager(
 
     private val auth: FirebaseAuth?
         get() = try {
+            if (FirebaseApp.getApps(context).isEmpty()) {
+                FirebaseApp.initializeApp(context)
+            }
             FirebaseAuth.getInstance()
-        } catch (e: Exception) {
+        } catch (e: Throwable) {
             Log.e(tag, "Firebase Auth not initialized: ${e.message}")
             null
         }
 
     private val firestore: FirebaseFirestore?
         get() = try {
+            if (FirebaseApp.getApps(context).isEmpty()) {
+                FirebaseApp.initializeApp(context)
+            }
             FirebaseFirestore.getInstance()
-        } catch (e: Exception) {
+        } catch (e: Throwable) {
             Log.e(tag, "Firebase Firestore not initialized: ${e.message}")
             null
         }
